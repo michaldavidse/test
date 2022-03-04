@@ -17,3 +17,8 @@ jobs:
       run: dotnet publish -r linux-x64 --configuration ReleaseComplete
     - name: Build for Windows
       run: dotnet publish -r win-x64 -c Release /p:PublishSingleFile=true /p:PublishTrimmed=true
+    - name: Upload artifact - Windows
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: TestZipfile
+        path: test/bin/Release/net6.0/win-x64/publish/Test.exe
